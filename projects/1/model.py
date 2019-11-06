@@ -7,12 +7,6 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 
 
 #
-# Dataset fields
-#
-#fields = """doc_id,hotel_name,hotel_url,street,city,state,country,zip,class,price,
-#num_reviews,CLEANLINESS,ROOM,SERVICE,LOCATION,VALUE,COMFORT,overall_ratingsource""".replace("\n",'').split(",")
-
-#
 # Model pipeline
 #
 
@@ -20,7 +14,7 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 numeric_features = ["if"+str(i) for i in range(1,13)]
 numeric_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='median')),
-#    ('scaler', StandardScaler())
+    ('scaler', StandardScaler())
 ])
 
 categorical_features = ["cf"+str(i) for i in range(1,27)] + ["day_number"]
@@ -29,6 +23,9 @@ categorical_transformer = Pipeline(steps=[
     ('onehot', OneHotEncoder(handle_unknown='ignore'))
 ])
 
+#
+# Dataset fields
+#
 fields = ["id"] + numeric_features + categorical_features
 
 preprocessor = ColumnTransformer(
