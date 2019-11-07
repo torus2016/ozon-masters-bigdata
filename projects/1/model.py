@@ -11,13 +11,13 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 #
 
 # We create the preprocessing pipelines for both numeric and categorical data.
-numeric_features = ["if"+str(i) for i in range(1,14)]
+numeric_features = ["if"+str(i) for i in range(1,13)]
 numeric_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='median')),
     ('scaler', StandardScaler())
 ])
 
-categorical_features = ["cf"+str(i) for i in range(1,27)] + ["day_number"]
+categorical_features = ["cf"+str(i) for i in range(1,26)] + ["day_number"]
 categorical_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
     ('onehot', OneHotEncoder(handle_unknown='ignore'))
