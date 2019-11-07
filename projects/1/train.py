@@ -10,7 +10,7 @@ from joblib import dump
 #
 # Import model definition
 #
-from model import model, fields, fields2
+from model import model, fields_t
 
 
 #
@@ -42,7 +42,7 @@ logging.info(f"TARGET_PATH {target_path}")
 #fields = """doc_id,hotel_name,hotel_url,street,city,state,country,zip,class,price,
 #num_reviews,CLEANLINESS,ROOM,SERVICE,LOCATION,VALUE,COMFORT,overall_ratingsource""".replace("\n",'').split(",")
 
-read_table_opts = dict(sep="\t", names=fields, index_col=False)
+read_table_opts = dict(sep="\t", names=fields_t, index_col=False)
 df = pd.read_table(train_path, **read_table_opts)
 
 df2 = df.iloc[:,1]
