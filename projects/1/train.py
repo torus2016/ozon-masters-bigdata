@@ -34,6 +34,7 @@ except:
 
 logging.info(f"TRAIN_ID {proj_id}")
 logging.info(f"TRAIN_PATH {train_path}")
+logging.info(f"TARGET_PATH {target_path}")
 
 #
 # Read dataset
@@ -45,7 +46,7 @@ read_table_opts = dict(sep="\t", names=fields, index_col=False)
 df = pd.read_table(train_path, **read_table_opts)
 
 read_table_opts2 = dict(sep="\t", names=fields2, index_col=False)
-df2 = pd.read_table(train_path2, **read_table_opts2)
+df2 = pd.read_table(target_path, **read_table_opts2)
 
 #split train/test
 X_train, X_test, y_train, y_test = train_test_split(
