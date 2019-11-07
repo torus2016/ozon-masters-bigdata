@@ -10,7 +10,7 @@ from joblib import dump
 #
 # Import model definition
 #
-from model import model, fields
+from model import model, fields, fields2
 
 
 #
@@ -44,9 +44,12 @@ logging.info(f"TRAIN_PATH {train_path}")
 read_table_opts = dict(sep="\t", names=fields, index_col=False)
 df = pd.read_table(train_path, **read_table_opts)
 
+read_table_opts2 = dict(sep="\t", names=fields2, index_col=False)
+df2 = pd.read_table(train_path2, **read_table_opts2)
+
 #split train/test
 X_train, X_test, y_train, y_test = train_test_split(
-    df.iloc[:,:-1], df.iloc[:,-1], test_size=0.33, random_state=42
+    df.iloc[:,:], df2.iloc[:,-1], test_size=0.33, random_state=42
 )
 
 #
