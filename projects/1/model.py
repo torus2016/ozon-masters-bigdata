@@ -27,7 +27,7 @@ categorical_transformer = Pipeline(steps=[
 # Dataset fields
 #
 fields = ["id"] + numeric_features + categorical_features
-fields_t = ["id"] + ["label"] + numeric_features + categorical_features
+fields_t = ["id","label"] + numeric_features + categorical_features
 
 preprocessor = ColumnTransformer(
     transformers=[
