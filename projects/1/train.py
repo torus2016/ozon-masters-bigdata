@@ -34,7 +34,7 @@ except:
 
 logging.info(f"TRAIN_ID {proj_id}")
 logging.info(f"TRAIN_PATH {train_path}")
-logging.info(f"TARGET_PATH {target_path}")
+
 
 #
 # Read dataset
