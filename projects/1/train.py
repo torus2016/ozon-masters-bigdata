@@ -10,7 +10,8 @@ from joblib import dump
 #
 # Import model definition
 #
-from model import model, fields_t
+from model import model
+#, fields_t
 
 
 #
@@ -39,20 +40,40 @@ logging.info(f"TRAIN_PATH {train_path}")
 #
 # Read dataset
 #
-#fields = """doc_id,hotel_name,hotel_url,street,city,state,country,zip,class,price,
-#num_reviews,CLEANLINESS,ROOM,SERVICE,LOCATION,VALUE,COMFORT,overall_ratingsource""".replace("\n",'').split(",")
+numeric_features_i = ["if"+str(i) for i in range(1,14)]
+categorical_features_i = ["cf"+str(i) for i in range(1,27)] + ["day_number"]
+fields_i = ["id","label"] + numeric_features_i + categorical_features_i
 
-read_table_opts = dict(sep="\t", names=fields_t, index_col=False)
+
+read_table_opts = dict(sep="\t", names=fields_i, index_col=False)
 df = pd.read_table(train_path, **read_table_opts)
 
 df2 = df.iloc[:,1]
 df.drop('label',axis = 1, inplace = True)
+df.drop('cf4',axis = 1, inplace = True)
+df.drop('cf6', axis = 1, inplace = True)
+df.drop('cf7',axis = 1, inplace = True)
+df.drop('cf8',axis = 1, inplace = True)
+df.drop('cf9',axis = 1, inplace = True)
+df.drop('cf14', axis = 1, inplace = True)
+df.drop('cf15', axis = 1, inplace = True)
+df.drop('cf16', axis = 1, inplace = True)
+df.drop('cf17', axis = 1, inplace = True)
+df.drop('cf18', axis = 1, inplace = True)
+df.drop('cf19', axis = 1, inplace = True)
+df.drop('cf25',axis = 1, inplace = True)
+df.drop('cf26', axis = 1, inplace = True)
+df.drop('day_number', axis = 1, inplace = True)
 
 #split train/test
 X_train, X_test, y_train, y_test = train_test_split(
     df, df2, test_size=0.33, random_state=42
 )
 
+#print(df.head(10));
+#print(df.iloc[:,13:].head(10));
+#print(df.iloc[:,21:].head(10));
+#print(df2.head(10));
 #
 # Train the model
 #
