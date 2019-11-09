@@ -44,7 +44,7 @@ logging.info(f"TRAIN_PATH {train_path}")
 file_fields = ["id","label"] + ["if"+str(i) for i in range(1,14)] + ["cf"+str(i) for i in range(1,27)] + ["day_number"]
 
 
-read_table_opts = dict(sep="\t", file_fields, index_col=False)
+read_table_opts = dict(sep="\t", names = file_fields, index_col=False)
 df = pd.read_table(train_path, **read_table_opts)
 
 df2 = df.iloc[:,1]
