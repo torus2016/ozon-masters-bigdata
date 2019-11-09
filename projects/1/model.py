@@ -38,7 +38,7 @@ numeric_transformer = Pipeline(steps=[
     ('scaler', StandardScaler())
 ])
 
-categorical_features = ["cf4","cf6","cf7","cf8","cf9","cf14","cf15","cf16","cf17","cf18","cf19","cf25","cf26","day_number"]
+categorical_features = ["cf6","cf9","cf13"]
 categorical_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='constant', fill_value='missing')),
     ('onehot', OneHotEncoder(handle_unknown='ignore'))
