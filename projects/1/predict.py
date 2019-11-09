@@ -6,7 +6,7 @@ from joblib import load
 import pandas as pd
 
 sys.path.append('.')
-from model import fields
+#from model import fields
 
 #
 # Init the logger
@@ -20,8 +20,9 @@ logging.info("ARGS {}".format(sys.argv[1:]))
 model = load("1.joblib")
 
 #read and infere
+file_fields = ["id"] + ["if"+str(i) for i in range(1,14)] + ["cf"+str(i) for i in range(1,27)] + ["day_number"]
 read_opts=dict(
-        sep='\t', names=fields, index_col=False, header=None,
+        sep='\t', names=file_fields, index_col=False, header=None,
         iterator=True, chunksize=10000
 )
 
