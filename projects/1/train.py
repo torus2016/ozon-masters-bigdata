@@ -48,20 +48,7 @@ read_table_opts = dict(sep="\t", names = file_fields, index_col=False)
 df = pd.read_table(train_path, **read_table_opts)
 
 df2 = df.iloc[:,1]
-df.drop('label',axis = 1, inplace = True)
-df.drop('cf1',axis = 1, inplace = True)
-df.drop('cf2', axis = 1, inplace = True)
-df.drop('cf3',axis = 1, inplace = True)
-df.drop('cf5',axis = 1, inplace = True)
-df.drop('cf10',axis = 1, inplace = True)
-df.drop('cf11', axis = 1, inplace = True)
-df.drop('cf12', axis = 1, inplace = True)
-df.drop('cf13', axis = 1, inplace = True)
-df.drop('cf20', axis = 1, inplace = True)
-df.drop('cf21', axis = 1, inplace = True)
-df.drop('cf22', axis = 1, inplace = True)
-df.drop('cf23',axis = 1, inplace = True)
-df.drop('cf24', axis = 1, inplace = True)
+df = df.loc[:, ['if1', 'if2','if3','if4','if5','if6','if7','if8','if9','if10','if11','if12','if13','cf6','cf9','cf13']]
 
 
 #split train/test
