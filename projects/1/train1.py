@@ -10,7 +10,7 @@ from joblib import dump
 #
 # Import model definition
 #
-from model import model
+from model1 import model
 #, fields_t
 
 
