@@ -8,6 +8,7 @@ import sys
 import os
 import logging
 import pandas as pd
+import numpy as np
 from sklearn.metrics import log_loss
 #
 # Init the logger
@@ -44,15 +45,18 @@ logging.info(f"PRED RECORDS {len_pred}")
 
 assert len_true == len_pred, f"Number of records differ in true and predicted sets"
 
+print ('np.any(np.isnan(df_true))')
+np.any(np.isnan(df_true))
+print ('np.any(np.isnan(df_pred))')
+np.any(np.isnan(df_pred))
+
 df = df_true.join(df_pred)
 len_df = len(df)
 assert len_true == len_df, f"Combined true and pred has different number of records: {len_df}"
 
-score = log_loss(df['true'], df['pred'])
 
-print(score)
+#score = log_loss(df['true'], df['pred'])
+
+#print(score)
 
 sys.exit(0)
-
-
-
