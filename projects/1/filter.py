@@ -6,7 +6,7 @@ from glob import glob
 import logging
 
 sys.path.append('.')
-from model import fields
+#from model import fields
 
 #
 # Init the logger
@@ -33,6 +33,8 @@ exec(open(filter_cond_files[0]).read())
 #
 #fields = """doc_id,hotel_name,hotel_url,street,city,state,country,zip,class,price,
 #num_reviews,CLEANLINESS,ROOM,SERVICE,LOCATION,VALUE,COMFORT,overall_ratingsource""".replace("\n",'').split(",")
+
+fields = ["id"] + ["if"+str(i) for i in range(1,14)] + ["cf"+str(i) for i in range(1,27)] + ["day_number"]
 
 #
 # Optional argument
