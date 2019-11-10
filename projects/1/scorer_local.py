@@ -45,6 +45,7 @@ logging.info(f"PRED RECORDS {len_pred}")
 
 assert len_true == len_pred, f"Number of records differ in true and predicted sets"
 
+print(np.isnan(df_true).head(10))
 #print ('np.any(np.isnan(df_true))')
 #print(np.any(np.isnan(df_true)))
 #print ('np.any(np.isnan(df_pred))')
@@ -55,7 +56,6 @@ len_df = len(df)
 assert len_true == len_df, f"Combined true and pred has different number of records: {len_df}"
 
 df = df.dropna(how='any',axis=0)
-print(df.head(10))
 score = log_loss(df['true'], df['pred'])
 
 print(score)
