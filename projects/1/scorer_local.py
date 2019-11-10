@@ -50,15 +50,19 @@ print ('np.any(np.isnan(df_true))')
 print(np.any(np.isnan(df_true)))
 print ('np.any(np.isnan(df_pred))')
 print(np.any(np.isnan(df_pred)))
-print(np.isnan(df_true).head(10))
+#print(np.isnan(df_true).head(10))
 
-df = df_true.join(df_pred)
-len_df = len(df)
-assert len_true == len_df, f"Combined true and pred has different number of records: {len_df}"
+df_true = df_true.dropna(how='any',axis=0)
+print('len(df_true)')
+print(len(df_true))
 
-df = df.dropna(how='any',axis=0)
-score = log_loss(df['true'], df['pred'])
+#df = df_true.join(df_pred)
+#len_df = len(df)
+#assert len_true == len_df, f"Combined true and pred has different number of records: {len_df}"
 
-print(score)
+#df = df.dropna(how='any',axis=0)
+#score = log_loss(df['true'], df['pred'])
+
+#print(score)
 
 sys.exit(0)
