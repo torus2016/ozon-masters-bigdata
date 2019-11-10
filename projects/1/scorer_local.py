@@ -46,17 +46,20 @@ logging.info(f"PRED RECORDS {len_pred}")
 assert len_true == len_pred, f"Number of records differ in true and predicted sets"
 
 
-print ('np.any(np.isnan(df_true))')
-print(np.any(np.isnan(df_true)))
-print ('np.any(np.isnan(df_pred))')
-print(np.any(np.isnan(df_pred)))
+print(df_true.head(10))
+print (df_pred.head(10))
+
+#print ('np.any(np.isnan(df_true))')
+#print(np.any(np.isnan(df_true)))
+#print ('np.any(np.isnan(df_pred))')
+#print(np.any(np.isnan(df_pred)))
 #print(np.isnan(df_true).head(10))
 
-print('len(df_pred)')
-print(len(df_pred))
-df_pred = df_pred.dropna(how='any',axis=0)
-print('len(df_pred)')
-print(len(df_pred))
+#print('len(df_pred)')
+#print(len(df_pred))
+#df_pred = df_pred.dropna(how='any',axis=0)
+#print('len(df_pred)')
+#print(len(df_pred))
 
 #df = df_true.join(df_pred)
 #len_df = len(df)
