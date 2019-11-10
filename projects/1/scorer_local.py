@@ -55,6 +55,7 @@ len_df = len(df)
 assert len_true == len_df, f"Combined true and pred has different number of records: {len_df}"
 
 df = df.dropna(how='any',axis=0)
+print(df.head(10))
 score = log_loss(df['true'], df['pred'])
 
 print(score)
